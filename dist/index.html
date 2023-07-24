@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Todo-List</title>
+</head>
+<body>
+<div id="overlay" class="hidden"></div>
+<div id="root">
+
+    <div id="header">
+        <div id="left">
+            <img id="menu-icon" src="../src/icons/menu.svg" alt="Menu Icon">
+        </div>
+        <div id="right">
+            <h2>UnForgetter</h2>
+            <img src="../src/icons/check-all.svg" alt="Site Icon">
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <div id="projectList"></div>
+        <button id="addProject">+ Add Project</button>
+        <div id="credits">
+            <p>👾 Created by <a href="https://github.com/NathanRazaf">NathanRazaf</a> - <a href="https://github.com/NathanRazaf/Todo-List.git">Source</a> 👾</p>
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="taskList"></div>
+        <button id="addTask">+ Add Task</button>
+    </div>
+
+    <div id="projectMaker" class="hidden">
+        <div class="makerHeader">
+            <h3>New Project</h3>
+            <button id="ProjectMakerClose">X</button>
+        </div>
+        <form id="projectForm" autocomplete="off">
+            <label for="ProjectTitle">Title</label>
+            <input type="text" id="ProjectTitle" placeholder="Learn programming" required>
+
+            <label for="ProjectDueDate">Due Date</label>
+            <input type="text" id="ProjectDueDate" placeholder="7/9/2024" required>
+
+            <label for="ProjectPriority">Priority</label>
+            <select id="ProjectPriority">
+                <option value="" disabled selected>Priority</option> <!-- Default value -->
+                <option value="Low">Not very important</option>
+                <option value="Medium">Important</option>
+                <option value="High">Very important</option>
+            </select>
+
+            <button type="submit" id="projectSubmit">Add Project</button>
+        </form>
+    </div>
+
+    <div id="projectModifier" class="hidden">
+        <div class="makerHeader">
+            <h3>Task</h3>
+            <button id="ProjectModifierClose">X</button>
+        </div>
+        <form id="projectModifierForm" autocomplete="off">
+            <label for="ProjectModifierTitle">Title</label>
+            <input type="text" id="ProjectModifierTitle" placeholder="Learn programming" required>
+
+            <label for="ProjectModifierDueDate">Due Date</label>
+            <input type="text" id="ProjectModifierDueDate" placeholder="7/9/2024" required>
+
+            <label for="ProjectModifierPriority">Priority</label>
+            <select id="ProjectModifierPriority">
+                <option value="" disabled selected>Priority</option> <!-- Default value -->
+                <option value="Low">Not very important</option>
+                <option value="Medium">Important</option>
+                <option value="High">Very important</option>
+            </select>
+
+            <button type="submit" id="projectModifierSubmit">Modify Project</button>
+        </form>
+    </div>
+
+    <div id="taskMaker" class="hidden">
+        <div class="makerHeader">
+            <h3>New Task</h3>
+            <button id="TaskMakerClose">X</button>
+        </div>
+        <form id="taskForm" autocomplete="off">
+            <label for="TaskTitle">Title</label>
+            <input type="text" id="TaskTitle" placeholder='"Learning CSS" or something like that' required>
+
+            <label for="TaskDescription">Description</label>
+            <textarea id="TaskDescription" placeholder='Same thing as the title but with details'></textarea>
+
+            <label for="TaskDueDate">Due Date</label>
+            <input type="text" id="TaskDueDate" placeholder="7/9/2024">
+
+            <label for="TaskPriority">Priority</label>
+            <select id="TaskPriority">
+                <option value="" disabled selected>Priority</option> <!-- Default value -->
+                <option value="Low">Not very important</option>
+                <option value="Medium">Important</option>
+                <option value="High">Very important</option>
+            </select>
+
+            <button type="submit" id="taskSubmit">Add Task</button>
+        </form>
+    </div>
+
+    <div id="taskModifier" class="hidden">
+        <div class="makerHeader">
+            <h3>Task</h3>
+            <button id="TaskModifierClose">X</button>
+        </div>
+        <form id="taskModifierForm" autocomplete="off">
+            <label for="TaskModifierTitle">Title</label>
+            <input type="text" id="TaskModifierTitle" placeholder='"Learning CSS" or something like that' required>
+
+            <label for="TaskModifierDescription">Description</label>
+            <textarea id="TaskModifierDescription" placeholder='Same thing as the title but with details'></textarea>
+
+            <label for="TaskModifierDueDate">Due Date</label>
+            <input type="text" id="TaskModifierDueDate" placeholder="7/9/2024">
+
+            <label for="TaskModifierPriority">Priority</label>
+            <select id="TaskModifierPriority">
+                <option value="" disabled selected>Priority</option> <!-- Default value -->
+                <option value="Low">Not very important</option>
+                <option value="Medium">Important</option>
+                <option value="High">Very important</option>
+            </select>
+
+            <button type="submit" id="taskModifierSubmit">Modify Task</button>
+        </form>
+    </div>
+
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>

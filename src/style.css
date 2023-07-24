@@ -1,0 +1,403 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./VT323-Regular.ttf') format('truetype');
+}
+
+h3 {
+    font-family: 'MyFont', monospace;
+    font-size: 30px;
+    color: #581c87;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+.highPriority {
+    color: red;
+}
+
+.mediumPriority {
+    color: green;
+}
+
+.lowPriority {
+    color: blue;
+}
+
+
+
+#root {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 50px 1fr;
+    height: 100vh;
+}
+
+#header {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    background: linear-gradient(to right, #7e22ce, #581c87);
+    color: #fff;
+    font-family: MyFont, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+
+}
+
+#header img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+#header #right {
+    display: flex;
+    align-items: center;
+}
+
+#header #right h2 {
+    margin: 10px;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+#header #left {
+    display: flex;
+    align-items: center;
+}
+
+#header #left img {
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 25%;
+    transition: all 0.2s ease-in-out;
+}
+
+#menu-icon:hover {
+    background-color: rgba(0,0,0, 0.3);
+    cursor: pointer;
+}
+
+#content {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    color: #fff;
+    display: flex;
+    background-color: #ddd6fe;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+}
+
+#taskList {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    height: fit-content;
+    width: 100%;
+    font-size: larger;
+    padding: 10px 20px;
+    border: 2px solid #581c87;
+    border-radius: 20px;
+}
+
+
+.taskItem h3 {
+    margin: 0;
+    padding: 0;
+    font-family: 'MyFont', monospace;
+    color: #581c87;
+    width: 300px;
+    overflow: auto;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.taskItem p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+.taskItem .taskDueDate {
+    font-size: 20px;
+}
+
+.projectItem p {
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.taskItem:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#taskMaker,
+#projectMaker,
+#taskModifier,
+#projectModifier {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 50%;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+#taskMaker.hidden,
+#overlay.hidden,
+#projectMaker.hidden,
+.taskButtons.hidden,
+#taskModifier.hidden,
+#projectModifier.hidden,
+#sidebar.hidden,
+.hidden {
+    display: none;
+}
+
+#credits {
+    align-self: center;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+#credits a {
+    color: #581c87;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#credits a:hover {
+    text-decoration: underline;
+}
+
+.active {
+    background-color: rgba(192, 132, 252, 0.3);
+}
+
+.makerHeader {
+    display: flex;
+    height: 20px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #581c87;
+}
+
+.makerHeader h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    color: #f3e8ff;
+}
+
+.makerHeader button {
+    background-color: #581c87;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #f3e8ff;
+    color: #f3e8ff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#taskForm,
+#taskModifierForm,
+#projectForm,
+#projectModifierForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 20px;
+}
+
+#taskForm label, #taskModifierForm label {
+    font-size: 21px;
+    color: #581c87;
+}
+
+
+
+#taskForm input,select,
+#projectForm input,select,
+#taskModifierForm input,select,
+#projectModifierForm input,select {
+    margin-bottom: 10px;
+    height: 20px;
+    border: 1px solid #94a3b8;
+    border-radius: 5px;
+}
+
+#taskForm input,
+#projectForm input,
+#taskModifierForm input,
+#projectModifierForm input {
+    padding: 5px;
+}
+
+#taskForm #TaskDescription,
+#taskModifierForm #TaskModifierDescription {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #94a3b8;
+    border-radius: 5px;
+    height: 100px;
+    resize: none;
+}
+
+#taskForm #TaskDueDate,
+#projectForm #ProjectDueDate,
+#taskModifierForm #TaskModifierDueDate,
+#projectModifierForm #ProjectModifierDueDate {
+    width: 15%;
+}
+
+#taskForm #TaskPriority,
+#projectForm #ProjectPriority,
+#taskModifierForm #TaskModifierPriority,
+#projectModifierForm #ProjectModifierPriority {
+    width: 15%;
+    height: 30px;
+}
+
+#taskSubmit,
+#projectSubmit,
+#taskModifierSubmit,
+#projectModifierSubmit {
+    align-self: center;
+    width: fit-content;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #581c87;
+    border: 2px solid black;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+#taskSubmit:hover,
+#projectSubmit:hover,
+#taskModifierSubmit:hover,
+#projectModifierSubmit:hover {
+    background-color: white;
+    color: #581c87;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #7e22ce;
+}
+
+.projectItem {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 12px;
+    border-bottom: 2px solid black;
+    transition: all 0.2s ease-in-out;
+}
+
+.projectItem h3, p {
+    margin: 0;
+    padding: 0;
+    font-size: larger;
+}
+
+.projectItemBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectItemTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projectButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.projectButtons img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#projectList {
+    align-self: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#addTask,#addProject {
+    align-self: center;
+    background-color: transparent;
+    font-family: 'MyFont', monospace;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#addTask:hover, #addProject:hover {
+    transform: scale(1.1);
+}
+
+#addProject {
+    color: #7e22ce;
+}
+
+#addTask {
+    color: #581c87;
+}
+
+.taskButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+}
+
+.taskButtons img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
