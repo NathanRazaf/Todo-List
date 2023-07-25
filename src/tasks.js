@@ -51,7 +51,7 @@ const tasks = (() => {
         });
 
         localStorage.setItem("projectArray", JSON.stringify(projects.projectArray));
-        console.log(localStorage.getItem("projectArray"));
+        console.log("JSON array 2 = " + localStorage.getItem("projectArray"));
     }
 
     return {

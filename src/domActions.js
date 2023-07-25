@@ -83,7 +83,8 @@ const domActions = (() => {
     }
 
     function initialize() {
-        if (JSON.parse(localStorage.getItem("projectArray")).length === 0) {
+
+        if (localStorage.getItem("projectArray")) {
             projects.projectArray.push(projects.project(
                 "Default Project",
                 "07/24/2023",
@@ -94,6 +95,7 @@ const domActions = (() => {
                     "High",
                     0)],
                 0));
+
         } else {
             projects.projectArray = JSON.parse(localStorage.getItem("projectArray"));
         }

@@ -53,7 +53,8 @@ const projects = (() => {
             const taskList = document.querySelector("#taskList");
             taskList.innerHTML = "";
             localStorage.setItem("projectArray", JSON.stringify(projectArray));
-            console.log(localStorage.getItem("projectArray"));
+            console.log("JSON array 1 = " + JSON.parse(localStorage.getItem("projectArray")));
+
         }
         else {
             projectArray.forEach(project => {
@@ -62,6 +63,7 @@ const projects = (() => {
             projectList.firstElementChild.classList.add("active");
             tasks.renderTasks(projectIndex);
         }
+
 
 
 
